@@ -15,5 +15,11 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
+  get '/gossips/:id' do
+    erb :show, locals: {gossips: Gossip.all}
+    puts "Voici le numéro du potin que tu veux : #{params['id']}!"
+    puts Gossip.find(params['id'])
+  end
+
 
 end
